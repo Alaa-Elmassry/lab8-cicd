@@ -18,6 +18,11 @@ async function connectWithRetry(retries = 10, delay = 3000) {
 
       const db = client.db(DB_NAME);
       collection = db.collection(COLLECTION_NAME);
+      await collection.updateOne(
+        { id: 7 },
+        { $setOnInsert: { id: 7, name: 'Tea', status: 'pending' } },
+        { upsert: true }
+      );
 
       console.log('Connected to MongoDB successfully');
       return;
