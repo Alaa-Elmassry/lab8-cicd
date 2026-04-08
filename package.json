@@ -1,0 +1,13 @@
+{
+  "name": "lab6-app",
+  "version": "1.0.0",
+  "description": "CISC 886 Lab 8 - CI/CD multi-container app with MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^6.5.0"
+  }
+}

@@ -1,0 +1,24 @@
+services:
+  app:
+    build: .
+    image: alaaelmassry/lab6-app:latest
+    container_name: lab6-app
+    ports:
+      - "3000:3000"
+    environment:
+      MODE: docker
+      MONGO_URI: mongodb://mongo:27017
+      DB_NAME: lab6db
+      COLLECTION_NAME: tasks
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:7
+    container_name: lab6-mongo
+    volumes:
+      - mongo_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+volumes:
+  mongo_data:
